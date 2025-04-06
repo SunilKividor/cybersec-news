@@ -7,6 +7,8 @@ WORKDIR /app
 
 # Install dependencies using yarn
 COPY package.json yarn.lock ./
+# Ensure you have "type": "module" in your package.json to fix the warning mentioned in logs
+# If not, add it to your actual package.json file before building
 RUN yarn --frozen-lockfile
 
 # Install Puppeteer dependencies
@@ -28,7 +30,8 @@ FROM base AS builder
 WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-COPY scripts ./scripts  
+# Removing redundant scripts copy as COPY . . already covers it if scripts is in the root
+# COPY scripts ./scripts
 
 # Next.js collects completely anonymous telemetry data about general usage.
 # Learn more here: https://nextjs.org/telemetry
@@ -62,18 +65,31 @@ ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true \
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 
+# Copy necessary files from builder stage first
 COPY --from=builder /app/public ./public
+# Copying scripts from builder ensures they are the ones potentially built/processed
 COPY --from=builder /app/scripts ./scripts
 
 # Set the correct permission for prerender cache
+# Create the .next directory before copying into it
 RUN mkdir .next
-RUN chown nextjs:nodejs .next
+# No need to chown here, --chown in COPY handles it later
 
 # Automatically leverage output traces to reduce image size
 # https://nextjs.org/docs/advanced-features/output-file-tracing
 COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
+# Ensure .next directory itself is also owned correctly after copying
+RUN chown nextjs:nodejs .next
 
+# --- FIX START ---
+# Create the data directory needed by the scraper BEFORE switching user
+RUN mkdir -p /app/data
+# Set ownership of the data directory to the user the app will run as
+RUN chown nextjs:nodejs /app/data
+# --- FIX END ---
+
+# Switch to the non-root user
 USER nextjs
 
 EXPOSE 3000
@@ -81,6 +97,11 @@ EXPOSE 3000
 ENV PORT 3000
 ENV HOSTNAME "0.0.0.0"
 
-# Modify the entrypoint to run both the Next.js server and the scraper
-ENTRYPOINT ["/usr/bin/dumb-init", "--", "sh", "-c"]
-CMD ["node server.js & node scripts/scrape.js"]
+# Use dumb-init to handle signals properly and directly execute the CMD
+# No need for 'sh -c' anymore as we run a single command
+ENTRYPOINT ["/usr/bin/dumb-init", "--"]
+
+# Run only the Next.js server process.
+# Scraping is triggered via the API endpoint defined in your app (GET function).
+# 'server.js' is the typical entrypoint for a standalone Next.js output.
+CMD ["node", "server.js"]

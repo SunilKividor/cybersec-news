@@ -9,6 +9,7 @@ services:
       - "3000:3000"
     environment:
       - NODE_ENV=production
+      - ENABLE_SCRAPING=true
     restart: unless-stopped
     # Add healthcheck
     healthcheck:
@@ -27,6 +28,7 @@ services:
     restart: unless-stopped
     environment:
       - NODE_ENV=production
+      - ENABLE_SCRAPING=true
     # This service depends on the main app
     depends_on:
       - app

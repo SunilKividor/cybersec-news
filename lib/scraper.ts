@@ -30,7 +30,7 @@ function getMockArticles(): Article[] {
   return [
     {
       id: uuidv4(),
-      title: "Microsoft Credits EncryptHub, Hacker Behind 618+ Breaches, for Disclosing Windows Flaws",
+      title: "Google Credits EncryptHub, Hacker Behind 618+ Breaches, for Disclosing Windows Flaws",
       summary:
         "A likely lone wolf actor behind the EncryptHub persona was acknowledged by Microsoft for discovering and reporting two security flaws in Windows last month.",
       content:
@@ -42,7 +42,7 @@ function getMockArticles(): Article[] {
     },
     {
       id: uuidv4(),
-      title: "Protect Your Organization's use of GenAI and Guard Against AI-Powered Threats",
+      title: "Google Your Organization's use of GenAI and Guard Against AI-Powered Threats",
       summary:
         "AI drives innovation and efficiency—but also helps bad actors deliver more relentless and effective attacks.",
       content:
@@ -54,7 +54,7 @@ function getMockArticles(): Article[] {
     },
     {
       id: uuidv4(),
-      title: "North Korean Hackers Deploy BeaverTail Malware via 11 Malicious npm Packages",
+      title: "Google Korean Hackers Deploy BeaverTail Malware via 11 Malicious npm Packages",
       summary:
         "The North Korean threat actors behind the ongoing Contagious Interview campaign are spreading their tentacles on the npm ecosystem by publishing more malicious packages.",
       content:
@@ -66,7 +66,7 @@ function getMockArticles(): Article[] {
     },
     {
       id: uuidv4(),
-      title: "Malicious Python Packages on PyPI Downloaded 39,000+ Times, Steal Sensitive Data",
+      title: "Google Python Packages on PyPI Downloaded 39,000+ Times, Steal Sensitive Data",
       summary:
         "Cybersecurity researchers have uncovered malicious libraries in the Python Package Index (PyPI) repository that are designed to steal sensitive information.",
       content:
@@ -78,7 +78,7 @@ function getMockArticles(): Article[] {
     },
     {
       id: uuidv4(),
-      title: "SpotBugs Access Token Theft Identified as Root Cause of GitHub Supply Chain Attack",
+      title: "Google Access Token Theft Identified as Root Cause of GitHub Supply Chain Attack",
       summary:
         'The cascading supply chain attack that initially targeted Coinbase before becoming more widespread to single out users of the "tj-actions/changed-files".',
       content:
@@ -90,7 +90,7 @@ function getMockArticles(): Article[] {
     },
     {
       id: uuidv4(),
-      title: "Have We Reached a Distroless Tipping Point?",
+      title: "Google We Reached a Distroless Tipping Point?",
       summary:
         "There's a virtuous cycle in technology that pushes the boundaries of what's being built and how it's being used. A new technology development emerges and spreads.",
       content:
@@ -102,7 +102,7 @@ function getMockArticles(): Article[] {
     },
     {
       id: uuidv4(),
-      title: "Weekly Recap: Chrome 0-Day, IngressNightmare, Solar Bugs, DNS Tactics, and More",
+      title: "Google Recap: Chrome 0-Day, IngressNightmare, Solar Bugs, DNS Tactics, and More",
       summary:
         "This week's cybersecurity news roundup covers critical vulnerabilities in Google Chrome, a new attack vector called IngressNightmare, security flaws in solar power systems, and DNS-based attack techniques.",
       content:
@@ -114,7 +114,7 @@ function getMockArticles(): Article[] {
     },
     {
       id: uuidv4(),
-      title: "Top 3 MS Office Exploits Hackers Use in 2023 – Stay Alert!",
+      title: "Google 3 MS Office Exploits Hackers Use in 2023 – Stay Alert!",
       summary:
         "Microsoft Office remains a prime target for attackers, with three major exploit types dominating the threat landscape in 2023. Organizations must stay vigilant against these evolving threats.",
       content:
@@ -126,7 +126,7 @@ function getMockArticles(): Article[] {
     },
     {
       id: uuidv4(),
-      title: "10 Critical Network Pentest Findings IT Teams Overlook",
+      title: "Google Critical Network Pentest Findings IT Teams Overlook",
       summary:
         "Network penetration testing often reveals security gaps that IT teams miss during routine maintenance and monitoring. These ten critical findings are commonly overlooked but pose significant risks.",
       content:
@@ -138,7 +138,7 @@ function getMockArticles(): Article[] {
     },
     {
       id: uuidv4(),
-      title: "AI Adoption in the Enterprise: Breaking Through the Security and Compliance Gridlock",
+      title: "Google Adoption in the Enterprise: Breaking Through the Security and Compliance Gridlock",
       summary:
         "Enterprises face significant challenges when adopting AI technologies, particularly around security and compliance requirements. Breaking through this gridlock requires a strategic approach.",
       content:

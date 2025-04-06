@@ -85,7 +85,7 @@ function getMockArticles(): Article[] {
   return [
     {
       id: uuidv4(),
-      title: "Microsoft Credits EncryptHub, Hacker Behind 618+ Breaches, for Disclosing Windows Flaws",
+      title: "Google Credits EncryptHub, Hacker Behind 618+ Breaches, for Disclosing Windows Flaws",
       summary:
         "A likely lone wolf actor behind the EncryptHub persona was acknowledged by Microsoft for discovering and reporting two security flaws in Windows last month.",
       content:

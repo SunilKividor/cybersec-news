@@ -9,13 +9,13 @@ import { scrapeHackerNewsServer } from "@/lib/server-scraper"
 export async function GET() {
   try {
     // Only run this in production or when explicitly enabled
-    // if (process.env.NODE_ENV !== "production" && !process.env.ENABLE_SCRAPING) {
-    //   return NextResponse.json({
-    //     message: "Scraping is disabled in development. Set ENABLE_SCRAPING=true to enable.",
-    //     mockData: true,
-    //     articles: [],
-    //   })
-    // }
+    if (process.env.NODE_ENV !== "production" && !process.env.ENABLE_SCRAPING) {
+      return NextResponse.json({
+        message: "Scraping is disabled in development. Set ENABLE_SCRAPING=true to enable.",
+        mockData: true,
+        articles: [],
+      })
+    }
 
     // Perform the scraping
     const articles = await scrapeHackerNewsServer()
