@@ -62,7 +62,8 @@
     "uuid": "latest",
     "fs": "latest",
     "path": "latest",
-    "puppeteer-core": "latest"
+    "puppeteer": "^22.8.2"
+
   },
   "devDependencies": {
     "@types/node": "^22",

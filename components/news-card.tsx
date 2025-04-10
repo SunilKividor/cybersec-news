@@ -7,6 +7,10 @@ interface NewsCardProps {
   article: Article
 }
 
+function slugify(str: string) {
+  return str.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)+/g, "")
+}
+
 export default function NewsCard({ article }: NewsCardProps) {
   return (
     <div className="group flex flex-col overflow-hidden rounded-lg bg-gray-800 transition-all hover:shadow-lg hover:shadow-purple-500/20">
@@ -31,7 +35,7 @@ export default function NewsCard({ article }: NewsCardProps) {
           </span>
         </div>
 
-        <Link href={`/article/${article.id}`}>
+        <Link href={`/article/${slugify(article.title)}`}>
           <h2 className="mb-2 text-lg font-bold leading-tight text-white transition-colors group-hover:text-purple-400">
             {article.title}
           </h2>
@@ -39,8 +43,7 @@ export default function NewsCard({ article }: NewsCardProps) {
 
         <p className="line-clamp-2 text-sm text-gray-400 mb-4">{article.summary}</p>
 
-        <Link
-          href={`/article/${article.id}`}
+        <Link href={`/article/${slugify(article.title)}`}
           className="mt-auto inline-flex items-center text-sm font-medium text-purple-400 hover:text-purple-300"
         >
           Read more

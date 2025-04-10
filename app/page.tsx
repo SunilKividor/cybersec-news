@@ -1,10 +1,10 @@
 import NewsGrid from "@/components/news-grid"
 import TrendingNews from "@/components/trending-news"
 import FeaturedArticle from "@/components/featured-article"
-import { getArticles } from "@/lib/scraper"
+import { scrapeHackerNewsServer } from "@/lib/server-scraper"
 
 export default async function Home() {
-  const articles = await getArticles()
+  const articles = await scrapeHackerNewsServer("")
 
   // Separate featured article and trending news
   const featuredArticle = articles[0]

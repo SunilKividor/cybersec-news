@@ -37,9 +37,13 @@ export default function Navbar() {
               <Terminal className="mr-1 h-4 w-4" />
               <span>Attacks</span>
             </Link>
+            <Link href="/solutions" className="text-gray-300 hover:text-purple-400 flex items-center">
+              <Terminal className="mr-1 h-4 w-4" />
+              <span>Solutions</span>
+            </Link>
           </div>
 
-          <div className="flex items-center">
+          {/* <div className="flex items-center">
             <div className="hidden md:flex items-center bg-gray-800 rounded-full px-3 py-1">
               <Search className="h-4 w-4 text-gray-400" />
               <input
@@ -52,7 +56,7 @@ export default function Navbar() {
             <button className="md:hidden text-gray-300 hover:text-white focus:outline-none" onClick={toggleMenu}>
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </button>
-          </div>
+          </div> */}
         </div>
       </div>
 
@@ -77,14 +81,21 @@ export default function Navbar() {
             >
               Attacks
             </Link>
-            <div className="flex items-center bg-gray-800 rounded-full px-3 py-1">
+            <Link
+              href="/solutions"
+              className="block text-gray-300 hover:text-purple-400"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Solutions
+            </Link>
+            {/* <div className="flex items-center bg-gray-800 rounded-full px-3 py-1">
               <Search className="h-4 w-4 text-gray-400" />
               <input
                 type="text"
                 placeholder="Search..."
                 className="bg-transparent border-none focus:outline-none text-white ml-2 w-full"
               />
-            </div>
+            </div> */}
           </div>
         </div>
       )}

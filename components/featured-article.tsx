@@ -7,6 +7,10 @@ interface FeaturedArticleProps {
   article: Article
 }
 
+function slugify(str: string) {
+  return str.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)+/g, "")
+}
+
 export default function FeaturedArticle({ article }: FeaturedArticleProps) {
   return (
     <div className="group relative overflow-hidden rounded-xl bg-gray-800 transition-all hover:shadow-xl hover:shadow-purple-500/20">
@@ -33,7 +37,7 @@ export default function FeaturedArticle({ article }: FeaturedArticleProps) {
           </span>
         </div>
 
-        <Link href={`/article/${article.id}`}>
+        <Link href={`/article/${slugify(article.title)}`}>
           <h1 className="mb-2 text-2xl font-bold leading-tight text-white transition-colors group-hover:text-purple-400 md:text-3xl">
             {article.title}
           </h1>

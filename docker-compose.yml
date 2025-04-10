@@ -20,19 +20,19 @@ services:
       start_period: 40s
 
   # Optional: Add a scraper service that runs on a schedule
-  scraper:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    command: node scripts/scrape.js
-    restart: unless-stopped
-    environment:
-      - NODE_ENV=production
-      - ENABLE_SCRAPING=true
-    # This service depends on the main app
-    depends_on:
-      - app
-    # Add volumes to persist scraped data
-    volumes:
-      - ./data:/app/data
+  # scraper:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   command: node scripts/scrape.js
+  #   restart: unless-stopped
+  #   environment:
+  #     - NODE_ENV=production
+  #     - ENABLE_SCRAPING=true
+  #   # This service depends on the main app
+  #   depends_on:
+  #     - app
+  #   # Add volumes to persist scraped data
+  #   volumes:
+  #     - ./data:/app/data
 
