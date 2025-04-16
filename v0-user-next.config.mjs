@@ -12,8 +12,8 @@ const nextConfig = {
   },
   // Update experimental config to use puppeteer-core
   experimental: {
-    serverComponentsExternalPackages: ['puppeteer-core'],
   },
+  serverExternalPackages: ['puppeteer-core'],
 }
 
 export default nextConfig

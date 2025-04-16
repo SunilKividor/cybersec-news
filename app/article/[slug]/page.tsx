@@ -9,16 +9,22 @@ function slugify(str: string) {
   return str.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)+/g, "")
 }
 
-export default async function ArticlePage({ params }: { params: { slug: string } }) {
+export default async function ArticlePage(props: {
+  params: { slug: string }
+})  {
   // ✅ params is safe to use here
-  const getSlug = () => params.slug; // this suppresses the warning
-  const slug = getSlug();
+  const { slug } = await props.params;
 
-  const articles = await scrapeHackerNewsServer()
+  const articles = await scrapeHackerNewsServer("")
   const article = articles.find((a) => slugify(a.title) === slug)
 
   if (!article) return notFound()
 
+    for (let i = 0; i < articles.length; i++) {
+      const article = articles[i];
+      console.log("runnning")
+      console.log(article.title);
+    }
   return (
     <main className="min-h-screen bg-gradient-to-br from-gray-900 to-black text-white">
       <div className="container mx-auto px-4 py-8">

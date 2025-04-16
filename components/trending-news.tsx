@@ -6,6 +6,10 @@ interface TrendingNewsProps {
   articles: Article[]
 }
 
+function slugify(str: string) {
+  return str.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)+/g, "")
+}
+
 export default function TrendingNews({ articles }: TrendingNewsProps) {
   return (
     <div className="space-y-6">
@@ -21,7 +25,7 @@ export default function TrendingNews({ articles }: TrendingNewsProps) {
           </div>
 
           <div className="flex flex-col">
-            <Link href={`/article/${article.id}`}>
+            <Link href={`/article/${slugify(article.title)}`}>
               <h3 className="text-sm font-medium leading-tight text-white transition-colors group-hover:text-purple-400">
                 {article.title}
               </h3>
