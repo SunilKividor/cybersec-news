@@ -29,7 +29,7 @@ export default function RootLayout({
               <div className="text-center">
                 <p>© {new Date().getFullYear()} CyberPulse. All rights reserved.</p>
                 <p className="text-xs mt-2">
-                  News content sourced from The Hacker News. This site is for educational purposes only.
+                  News content sourced from Trusted Sources. This site is for educational purposes only.
                 </p>
               </div>
             </div>
